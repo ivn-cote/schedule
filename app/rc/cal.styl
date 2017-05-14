@@ -1,0 +1,89 @@
+body, html
+  margin 0
+  padding 0
+  height 100%
+  -webkit-font-smoothing antialiased
+  text-rendering optimizeLegibility
+  font-family "Myriad Set Pro","Lucida Grande","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif"
+
+$contW = 600px
+$contH = 720px
+$contLeft = 60px
+
+.calendarPage
+  position relative
+  margin-top 60px
+  margin-left 100px
+  &-timeline
+    position relative
+    width $contLeft + $contW + 20px
+    padding-bottom 100px
+  &-events
+    position absolute
+    top 0
+    left $contLeft
+    height 720px
+    width $contW
+    margin 0 10px
+    overflow-y scroll
+
+  .loader
+    font-size 16px
+    height 100px
+    color lightblue
+
+  .timing
+    position relative
+    height ($contH/12) - 1px
+    width calc(100% - 60px)
+    margin-left 60px
+    border 1px solid gray
+    border-bottom none
+    &-digit
+      position absolute
+      width 60px
+      height @width
+      top -8px
+      left (-1*@width - 5)
+      text-align right
+      font-size 12px
+    &-half
+      padding-top 15px
+      font-size 9px
+      color gray
+    &-apm
+      font-size 10px
+      color gray
+    &:last-child
+      height 0
+      .timing-half
+        display: none
+
+  .event
+    $evColor = #2FD89C
+    &:before
+      content ''
+      position absolute
+      display block
+      top 0
+      left 0
+      width 5px
+      height 100%
+      background $evColor
+    position absolute
+    top 0
+    left 0
+    width 100px
+    height 100px
+    min-width 100px
+    background #F5F5F5
+    overflow hidden
+    &-title
+      color $evColor
+      margin 10px 0 0 20px
+      font-size 13px
+    &-location
+      color gray
+      font-size 10px
+      margin 6px 0 0 20px
+
